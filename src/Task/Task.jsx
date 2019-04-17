@@ -5,7 +5,9 @@ class Task extends React.Component {
     render() {
         return (
             <div className="tasks">
-                <span className="text">{this.props.text}</span>
+                <h2 className="title">{this.props.title}</h2>
+                <p className="text">{this.props.text}</p>
+
             </div>
         )
     }
