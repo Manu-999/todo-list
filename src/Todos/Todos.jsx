@@ -14,14 +14,14 @@ class Todos extends React.Component {
                 id: Date.now(),
                 text,
                 completed: false,
-                created: new Date()
+                createdAt: new Date(),
             }
             this.setState({ tasks: [...this.state.tasks, newTask], newTaskText: '' });
             console.log(this.state.tasks);
         }
     };
 
-    hendleTask = (ev) => {
+    handleTask = (ev) => {
         if (ev.keyCode === 13) {
             this.addTask(this.state.newTaskText.trim());
         }
@@ -31,7 +31,7 @@ class Todos extends React.Component {
         return (
             <div className="todos">
                 <div className="addTask">
-                    <input className="input-task" type="text" placeholder="añadir una tarea" onChange={ev => this.setState({ newTaskText: ev.target.value })} onKeyUp={this.handleTask} value={this.state.newTaskText}></input>
+                    <input className="input-task" type="text" placeholder="add a new task" onChange={ev => this.setState({ newTaskText: ev.target.value })} onKeyUp={this.handleTask} value={this.state.newTaskText}></input>
                 </div>
                 <div className="taskList">
                     {this.state.tasks.map(tasks => (
